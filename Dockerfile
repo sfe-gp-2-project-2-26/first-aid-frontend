@@ -18,7 +18,9 @@ FROM node:22-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/package.json ./
+COPY --from=builder /app ./
 
 EXPOSE 8080
 
 CMD ["node", ".output/server/index.mjs"]
+CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "8080"]
