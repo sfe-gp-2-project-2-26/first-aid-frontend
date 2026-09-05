@@ -6,6 +6,9 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   envDir: "../",
+  preview: {
+    allowedHosts: true,
+  },
   plugins: [
     tsConfigPaths(),
     tailwindcss(),
